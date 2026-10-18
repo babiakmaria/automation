@@ -28,4 +28,8 @@ describe('formatSeconds', () => {
   it('відхиляє відʼємні значення', () => {
     expect(() => formatSeconds(-48923)).toThrow('INVALID_SECONDS');
   });
+
+  it('перевірка перетворення з десяткового числа', () => {
+    expect(formatSeconds(645.8)).toBe('00:10:45');
+  })
 });
