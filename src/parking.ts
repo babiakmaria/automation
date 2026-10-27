@@ -26,5 +26,6 @@ export function calcParkingFee(minutes: number, options: ParkingOptions = {}): n
   }
 
   if (options.night) fee = fee / 2;
+  if (options.weekend) fee = fee * 0.8;
   return fee;
 }
