@@ -27,4 +27,13 @@ describe('calcPenalty', () => {
   ])('прострочення $days дн. → пеня $expected грн', ({ days, expected }) => {
     expect(calcPenalty(1000, days)).toBeCloseTo(expected, 2);
   });
+  
+  it.each([
+    { days: 502, expected: 499 },
+    { days: 503, expected: 500 },
+    { days: 504, expected: 500 },
+    { days: 1000, expected: 500 },
+  ])('обмеження 50 % боргу: $days дн. → $expected грн', ({ days, expected }) => {
+    expect(calcPenalty(1000, days)).toBeCloseTo(expected, 2);
+  });
 });
