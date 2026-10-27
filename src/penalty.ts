@@ -5,6 +5,7 @@ export function calcPenalty(debt: number, daysOverdue: number): number {
   if (!Number.isInteger(daysOverdue) || daysOverdue < 0) {
     throw new Error('INVALID_DAYS');
   }
-  return 0;
+  if (daysOverdue <= 3) return 0;
+  return debt * 0.001 * (daysOverdue - 3);
 }
 
