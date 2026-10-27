@@ -18,4 +18,13 @@ describe('calcPenalty', () => {
   it('не відхиляє нульовий борг', () => {
     expect(calcPenalty(0, 10)).toBe(0);
   });
+  
+  it.each([
+    { days: 3, expected: 0 },
+    { days: 4, expected: 1 },
+    { days: 5, expected: 2 },
+    { days: 30, expected: 27 },
+  ])('прострочення $days дн. → пеня $expected грн', ({ days, expected }) => {
+    expect(calcPenalty(1000, days)).toBeCloseTo(expected, 2);
+  });
 });
