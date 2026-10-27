@@ -10,4 +10,12 @@ describe('calcPenalty', () => {
   it.each([-1, -10, 4.5])('відхиляє кількість днів %s', (days) => {
     expect(() => calcPenalty(1000, days)).toThrow('INVALID_DAYS');
   });
+  
+  it.each([0, 1, 2, 3])('пільговий період: %i дн. без пені', (days) => {
+    expect(calcPenalty(1000, days)).toBe(0);
+  });
+
+  it('не відхиляє нульовий борг', () => {
+    expect(calcPenalty(0, 10)).toBe(0);
+  });
 });
