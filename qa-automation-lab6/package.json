@@ -1,0 +1,12 @@
+{
+  "name": "qa-automation-lab6",
+  "private": true,
+  "scripts": {
+    "exp:pause-1000": "playwright test tests/wait.spec.ts -g \"очікуванням пауза 1000\" --project=chromium --repeat-each=10 --workers=1 --reporter=list",
+    "exp:expect": "playwright test tests/wait.spec.ts -g \"очікуванням твердження очікування\" --project=chromium --repeat-each=10 --workers=1 --reporter=list",
+    "exp:pause-5000": "playwright test tests/wait.spec.ts -g \"очікуванням пауза 5000\" --project=chromium --repeat-each=10 --workers=1 --reporter=list",
+    "exp:content-1000": "playwright test tests/wait.spec.ts --project=chromium --repeat-each=10 --workers=1 --reporter=list -g \"вміст: пауза 1000\"",
+    "exp:content-expect": "playwright test tests/wait.spec.ts --project=chromium --repeat-each=10 --workers=1 --reporter=list -g \"вміст: твердження\"",
+    "exp:content-5000": "playwright test tests/wait.spec.ts --project=chromium --repeat-each=10 --workers=1 --reporter=list -g \"вміст: пауза 5000\""
+  }
+}
